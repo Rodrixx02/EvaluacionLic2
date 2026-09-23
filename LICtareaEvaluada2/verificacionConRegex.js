@@ -31,7 +31,8 @@ function VerificarCard(str){
     return Boolean(iscard);
 }
 
-btnConfirmar.addEventListener("click", function() {
+btnConfirmar.addEventListener("click", function(event) {
+    event.preventDefault();
     if (!verificarCorreo(inputEmail.value)) {
         alert("Ingresar un correo válido.");
         inputEmail.value = "";
@@ -69,4 +70,6 @@ btnConfirmar.addEventListener("click", function() {
 
     // Si pasa todas las comprobaciones:
     alert("¡Todos los datos son válidos y el formulario fue enviado!");
+
+    document.querySelector('form').reset();
 });
